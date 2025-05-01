@@ -1,0 +1,158 @@
+SPARK Toolset - Source Distribution
+===================================
+
+This is the SPARK Toolset source distribution. It contains source code and
+makefiles suitable for building the SPARK tools from source.
+
+Unpacking the Source Distribution
+=================================
+
+The source distribution of the SPARK Toolset is supplied
+as a "compressed tarball" file.  It is created using the Cygwin
+"tar" and "gzip" commands on Windows.
+
+To unpack the distribution:
+
+On Solaris, use "gzip -d" following by "gtar xf".
+Note that the standard Solaris "tar" command is not
+recommended or guaranteed to work, owing to the length
+of some of the filenames in the source distribution.
+
+On Linux or OS X  machines: use "gzip -d" followed
+by "tar xf".
+
+On Windows machines: use the cygwin "gzip -d" and "tar xf" commands.
+do NOT use the WinZip utility to unpack the distribution - this
+does not currently work owing to the length of the filenames in
+the Examiner sources.
+
+Contents
+========
+
+Source code
+-----------
+/examiner          - Examiner (SPARK).
+/sparkformat       - SparkFormat SPARK).
+/sparkmake         - Sparkmake (SPARK).
+/sparksimp         - Sparksimp (Ada).
+/pogs              - Pogs (SPARK).
+/simplifier        - Simplifier and ZombieScope (SICStus-Prolog).
+/checker           - Checker (SICStus-Prolog).
+/common/versioning - Version information. (SPARK and SICStus-Prolog).
+
+Data files
+----------
+/lib/spark   - Data files needed by the Examiner.
+/lib/checker - Data files needed by the Checker. 
+
+Toolset
+-------
+/bin  - Initially empty. Used to store a built toolset.
+/dlls - Potentially required Microsoft Windows redistributable DLL files.
+
+Static analysis
+---------------
+/analyse/referenceanalysis - Reference static analysis results.
+/analyse/generatedanalysis - Initially empty. Used in analysing a built toolset.
+
+Building
+--------
+/makefile - Makefile for both building and analysing the SPARK toolset.
+
+Support
+-------
+/COPYING3 - Your copy of the GNU GENERAL PUBLIC LICENSE, version 3.
+/COPYING.RUNTIME - Your copy of the GCC Runtime Library Exception
+/README   - This file.
+
+
+Platforms
+=========
+
+The SPARK Toolset source distribution is known to work on the following
+platforms:
+
+Red Hat Enterprise Linux 5.5 (32-bit)
+Red Hat Enterprise Linux 5.5 (64-bit)
+Mac OS X Leopard (10.5.8)
+Max OS X Snow Leopard (10.6.2 or later)
+Microsoft Windows (XP, 32-bit Vista, 64-bit Vista, 32-bit Windows 7, 64-bit Windows 7, Server 2003)
+SPARC/Solaris 8
+
+Other Linux distributions may also work.
+
+Prerequisites
+=============
+
+To build the SPARK toolset, the following tools must be available. The
+versions listed here are known to work. Later versions may also work.
+
+GNAT Ada Compiler
+-----------------
+Version: GNAT Pro 6.3.2, GNAT GPL 2010 or later
+Website: http://www.adacore.com/ or https://libre.adacore.com/
+
+SICStus Prolog
+--------------
+Version: SICStus 4.1.1 or later
+Website: http://www.sics.se/sicstus/
+
+Note that the SICStus Prolog complier requires a pre-installed C compiler and
+linker. This may be installed for each platform as detailed below.
+
+Linux and Solaris: The GNAT Ada Compiler is sufficient.
+
+Mac OS X: Apple's XCode tools are required. These tools are distributed with
+Mac OS X, but are not installed by default. The "makefile" supplied with the
+SPARK toolset assumes that Apple's version of gcc is installed in /usr/bin
+
+Microsoft Windows: Microsoft's compiler suite is required (C compiler, linker,
+libraries, etc.). The Microsoft Visual C++ 2005 Express Edition (with service
+pack 1 and the platform SDK) is known to work:
+http://www.microsoft.com/express/2005/download
+
+Unix tools
+----------
+The following standard Unix commands are used in the build process: make, cp,
+mv, rm, uname, chmod, diff, sed, gunzip, tar. These may be installed for
+each platform as detailed below.
+
+Linux, Mac OS X and SunOS: These tools should be available as standard.
+
+Microsoft Windows: These tools may be installed as part of the Cygwin package:
+http://www.cygwin.com/
+
+
+How to build
+============
+
+With the prerequisites installed and on your PATH, change directory to the
+root of the SPARK Toolset source distribution and type:
+make
+
+This will build the tools, copy them to the toolset directory (./bin), and
+clean up the source tree.
+
+
+How to analyse
+==============
+
+With the prerequisites installed and on your path, the toolset built and also
+on your PATH, change directory to the root of the SPARK Toolsmaket source
+distribution and type:
+make analysetest
+
+The message 'Matched reference analysis results.' is reported to the screen if
+the expected results are generated.  Otherwise, the message 'Did not match
+reference analysis results!' is reported to the screen, alongside the
+differences detected.
+
+
+Contacting us
+=============
+
+While we do not offer a formal support service for users of the SPARK Toolset
+source distribution, we are pleased to hear from its users, either to report
+problems with the toolset or its documentation, or to suggest new ideas.
+SPARK team can be contacted at: sparkinfo@altran-praxis.com
+
